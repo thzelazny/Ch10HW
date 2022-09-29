@@ -14,5 +14,14 @@ print("Name:",emp.return_empname())
 print("ID Number:",emp.return_empid())
 print("Department:",emp.return_empdept())
 print("Gross Pay: $",float(emp.return_empsalary()),sep='')
-print("Net Pay: $",emp.return_empsalary()-ded_2.return_p_charge()-ded_4.return_p_charge()-ded_5.return_p_charge(),sep='')
+
+net=emp.return_empsalary()
+
+ded=[ded_1,ded_2,ded_3,ded_4,ded_5]
+
+for i in ded:
+    if p.PayrollDeduction.return_p_empid(i)==emp.return_empid():
+        net-=p.PayrollDeduction.return_p_charge(i)
+print("Net Pay: $",net,sep='')
+
 
